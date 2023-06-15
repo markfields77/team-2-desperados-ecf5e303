@@ -13,13 +13,18 @@ public class Position {
     }
 
 
-    public Position(int XCoordinates, int YCoordinates) {
-        coordinates.x = XCoordinates;
-        coordinates.y = YCoordinates;
+    public Position(Point point) {
+        coordinates.x = point.x;
+        coordinates.y = point.y;
     }
 
     public Point getPosition() {
         return coordinates;
+    }
+
+    public void setPosition(Point point) {
+        coordinates.x = point.x;
+        coordinates.y = point.y;
     }
     
 }
