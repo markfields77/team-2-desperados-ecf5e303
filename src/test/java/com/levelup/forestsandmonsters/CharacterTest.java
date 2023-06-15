@@ -3,10 +3,14 @@ package com.levelup.forestsandmonsters;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
+import java.awt.Point;
 
 import com.levelup.forestsandmonsters.classes.Character;
+import com.levelup.forestsandmonsters.classes.TestablePosition;
  
 public class CharacterTest {
+
+    Point testCoordinates;
 
     @Test
     public void initializationCharacter() {
@@ -29,7 +33,18 @@ public class CharacterTest {
         assertEquals(testName, retrieveName);
     }
 
-    
+    @Test 
+    public void testGetPosition() {
+        TestablePosition testPosition = new TestablePosition();
+
+        testCoordinates = new Point();
+        testCoordinates.x=8;
+        testCoordinates.y=8;
+
+        Point point = testPosition.getPosition();
+
+        assertEquals(point, testCoordinates);
+    }
 
 
 }
