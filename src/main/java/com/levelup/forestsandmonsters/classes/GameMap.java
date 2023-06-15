@@ -17,10 +17,44 @@ public class GameMap {
         startingPosition.coordinates = point;
     }
 
-    public int getNumPositions() {
+    public int getTotalPositions() {
         return numPositions;
     }
 
+    public boolean getIsPostionValid(Point point) {
+        if((point.x >= 0 && point.y >=0) && (point.x <= 9 && point.y <=9)) {
+            return true;
+        } else {
+        return false;
+        }
+    }
+
+    public Position calculatePosition(Position startingPosition, DIRECTION direction) {
+       
+        Position newPosition = startingPosition;
+        String directionName = direction.name();
+        System.out.println("Here"+direction.name());
+        System.out.println("Here 1 "+directionName);
+        if( directionName.equalsIgnoreCase("N")) {
+            startingPosition.coordinates.y = startingPosition.coordinates.y - 1;
+            newPosition.coordinates.y = startingPosition.coordinates.y;
+        }
+        if(directionName.equalsIgnoreCase("W")) {
+            startingPosition.coordinates.x = startingPosition.coordinates.x - 1;
+            newPosition.coordinates.x = startingPosition.coordinates.x;
+        }
+        if(direction.name().equalsIgnoreCase("S")) {
+            startingPosition.coordinates.y = startingPosition.coordinates.y + 1;
+            newPosition.coordinates.y = startingPosition.coordinates.y;
+        }
+        if(direction.name().equalsIgnoreCase("E")) {
+            startingPosition.coordinates.x = startingPosition.coordinates.x + 1;
+            newPosition.coordinates.x = startingPosition.coordinates.x;
+        }
+        System.out.println("Here newPosition "+newPosition.coordinates.getX());
+        System.out.println("Here newPosition "+newPosition.coordinates.getY());
+        return newPosition;
+    }
 
     
 }
