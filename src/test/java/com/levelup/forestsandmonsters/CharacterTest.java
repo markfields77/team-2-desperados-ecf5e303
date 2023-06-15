@@ -7,6 +7,7 @@ import java.awt.Point;
 
 import com.levelup.forestsandmonsters.classes.Character;
 import com.levelup.forestsandmonsters.classes.TestablePosition;
+import com.levelup.forestsandmonsters.classes.Position;
  
 public class CharacterTest {
 
@@ -46,5 +47,12 @@ public class CharacterTest {
         assertEquals(point, testCoordinates);
     }
 
+    @Test
+    public void testGetPosition2() {
+        Character character = new Character();
+        Position position = new Position();
+
+        assertEquals(character.getPosition(), position.getPosition());
+    }
 
 }
