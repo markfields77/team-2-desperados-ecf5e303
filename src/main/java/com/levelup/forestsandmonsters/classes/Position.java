@@ -8,14 +8,13 @@ public class Position {
     
     public Position() {
         coordinates = new Point();
-        coordinates.x=0;
-        coordinates.y=0;
+        coordinates.x=5;
+        coordinates.y=5;
     }
 
 
     public Position(Point point) {
-        coordinates.x = point.x;
-        coordinates.y = point.y;
+        this.coordinates = point;
     }
 
     public Point getPosition() {
