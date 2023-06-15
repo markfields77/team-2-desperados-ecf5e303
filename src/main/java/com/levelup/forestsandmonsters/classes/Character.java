@@ -24,4 +24,7 @@ public class Character {
         return position.getPosition();
     }   
 
+    public void move() {
+        
+    } 
 }

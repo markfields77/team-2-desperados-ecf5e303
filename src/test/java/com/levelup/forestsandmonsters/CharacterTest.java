@@ -55,4 +55,10 @@ public class CharacterTest {
         assertEquals(character.getPosition(), position.getPosition());
     }
 
+    @Test
+    public void testCharacterMove() {
+        Character testObj = new Character();
+        testObj.move();
+    }
+
 }
