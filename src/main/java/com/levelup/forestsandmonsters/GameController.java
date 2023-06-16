@@ -14,9 +14,9 @@ public class GameController {
     public class GameStatus {
         // TODO: Add other status data
         public String characterName = DEFAULT_CHARACTER_NAME;
-        public Point currentPosition = null;
+        public Point currentPosition = new Point(5, 5);
         // TODO: Write a failing unit test that will force you to set this to the right number
-        public int moveCount = -100;
+        public int moveCount = 0;
     }
 
     GameStatus status;
@@ -69,6 +69,8 @@ public class GameController {
         // TODO: Should probably also update the game results
         character.move(directionToMove);
         GameStatus gameStatus = this.getStatus();
+        gameStatus.moveCount++;
+        gameStatus.currentPosition = character.getPosition().getPosition();
         printStatus(gameStatus);
     }
 

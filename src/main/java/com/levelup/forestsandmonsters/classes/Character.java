@@ -46,7 +46,9 @@ public class Character {
         System.out.println("Valid Position : "+validPos);
         if(validPos) {
         this.setPosition(movedPosition);  
-        }    
+        } else {
+            this.setPosition(getPosition()); 
+        }
     } 
 
     public void enterMap(GameMap map) {
