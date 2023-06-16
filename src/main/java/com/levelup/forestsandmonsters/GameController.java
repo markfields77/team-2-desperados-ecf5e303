@@ -1,10 +1,14 @@
 package com.levelup.forestsandmonsters;
+import com.levelup.forestsandmonsters.classes.GameMap;
+import com.levelup.forestsandmonsters.classes.Character;
 
 import java.awt.Point;
 
 public class GameController {
 
     static final String DEFAULT_CHARACTER_NAME = "Character";
+    GameMap gameMap;
+    Character character;
 
     public class GameStatus {
         // TODO: Add other status data
@@ -18,6 +22,8 @@ public class GameController {
 
     public GameController() {
         status = new GameStatus();
+        character = new Character();
+        gameMap = new GameMap();
     }
 
     // TODO: Ensure this AND CLI commands match domain model
@@ -39,6 +45,7 @@ public class GameController {
         // TODO: Implement startGame - Should probably create tiles and put the character
         // on them?
         // TODO: Should also update the game results?
+        character.enterMap(gameMap);
     }
 
     public GameStatus getStatus() {
