@@ -1,6 +1,7 @@
 package com.levelup.forestsandmonsters;
 import com.levelup.forestsandmonsters.classes.GameMap;
 import com.levelup.forestsandmonsters.classes.Character;
+import com.levelup.forestsandmonsters.classes.DIRECTION;
 
 import java.awt.Point;
 
@@ -27,9 +28,9 @@ public class GameController {
     }
 
     // TODO: Ensure this AND CLI commands match domain model
-    public static enum DIRECTION {
-        NORTH, SOUTH, EAST, WEST
-    }
+    // public static enum DIRECTION {
+    //     NORTH, SOUTH, EAST, WEST
+    // }
 
     // Pre-implemented to demonstrate ATDD
     // TODO: Update this if it does not match your design
@@ -46,15 +47,29 @@ public class GameController {
         // on them?
         // TODO: Should also update the game results?
         character.enterMap(gameMap);
+        GameStatus gameStatus = this.getStatus();
+        this.printStatus(gameStatus);
     }
 
     public GameStatus getStatus() {
         return this.status;
     }
 
+    public void printStatus(GameStatus gameStatus)
+    {
+        System.out.println("");
+        System.out.print(gameStatus.characterName+" is currently at ");
+        System.out.print(gameStatus.currentPosition + " and you have taken ");
+        System.out.print(gameStatus.moveCount+ " moves " );
+        System.out.println("");
+    }
+
     public void move(DIRECTION directionToMove) {
         // TODO: Implement move - should call something on another class
         // TODO: Should probably also update the game results
+        character.move(directionToMove);
+        GameStatus gameStatus = this.getStatus();
+        printStatus(gameStatus);
     }
 
     public void setCharacterPosition(Point coordinates) {

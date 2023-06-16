@@ -10,6 +10,7 @@ public class Character {
     public String name = " ";
     Position position;
     GameMap gameMap;
+    Boolean validPos = true;
 
     public Character() {
      position = new Position();
@@ -35,13 +36,17 @@ public class Character {
     public void setPosition(Position newPosition) {
         position.coordinates.x = newPosition.coordinates.x;
         position.coordinates.y = newPosition.coordinates.y;
+        System.out.println("Pos x "+ position.coordinates.x);
+        System.out.println("Pos y "+ position.coordinates.y);
     }
 
     public void move(DIRECTION direction) {
         Position movedPosition = gameMap.calculatePosition(this.getPosition(), direction);
-        System.out.print("1 a "+movedPosition.getPosition().x);
-        System.out.print("2 b "+movedPosition.getPosition().y);
-        setPosition(movedPosition);      
+        validPos = gameMap.getIsPostionValid(movedPosition.coordinates);
+        System.out.println("Valid Position : "+validPos);
+        if(validPos) {
+        this.setPosition(movedPosition);  
+        }    
     } 
 
     public void enterMap(GameMap map) {

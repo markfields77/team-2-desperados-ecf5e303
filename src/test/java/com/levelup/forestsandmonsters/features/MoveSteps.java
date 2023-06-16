@@ -9,12 +9,14 @@ import com.levelup.forestsandmonsters.GameController;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import com.levelup.forestsandmonsters.classes.DIRECTION;
+
 
 public class MoveSteps {
 
     GameController testObj = new GameController();
     int startX, startY, endX, endY;
-    GameController.DIRECTION direction;
+    DIRECTION direction;
     Point currentPosition;
 
     @Given("the character starts at position with XCoordinates {int}")
@@ -29,7 +31,7 @@ public class MoveSteps {
 
     @Given("the player choses to move in {word}")
     public void givenCharacterChoosesDirection(String direction) {
-        this.direction = GameController.DIRECTION.valueOf(direction);
+        this.direction = DIRECTION.valueOf(direction);
     }
 
     @Given("the current move count is {int}")
