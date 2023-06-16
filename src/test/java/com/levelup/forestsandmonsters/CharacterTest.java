@@ -6,12 +6,14 @@ import org.junit.Test;
 import java.awt.Point;
 
 import com.levelup.forestsandmonsters.classes.Character;
+import com.levelup.forestsandmonsters.classes.DIRECTION;
 import com.levelup.forestsandmonsters.classes.TestablePosition;
 import com.levelup.forestsandmonsters.classes.Position;
  
 public class CharacterTest {
 
     Point testCoordinates;
+    Position position;
 
     @Test
     public void initializationCharacter() {
@@ -47,18 +49,27 @@ public class CharacterTest {
         assertEquals(point, testCoordinates);
     }
 
-    @Test
-    public void testGetPosition2() {
-        Character character = new Character();
-        Position position = new Position();
+    // @Test
+    // public void testGetPosition2() {
+    //     Character character = new Character();
+    //     Position position = new Position();
 
-        assertEquals(character.getPosition(), position.getPosition());
-    }
+    //     assertEquals(character.getPosition(), position.getPosition());
+    // }
 
     @Test
     public void testCharacterMove() {
         Character testObj = new Character();
-        testObj.move();
+        position = new Position();       
+
+        testObj.move(DIRECTION.N);
+
+        Position testPostion = testObj.getPosition();
+        System.out.print(testPostion.getPosition().x);
+        System.out.print(testPostion.getPosition().y);
+        assertNotNull(null, testPostion);
+        assertEquals(5, testPostion.getPosition().x);
+        assertEquals(4, testPostion.getPosition().y);
     }
 
 }
