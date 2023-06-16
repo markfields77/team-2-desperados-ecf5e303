@@ -9,7 +9,6 @@ public class GameMap {
    
     public GameMap () {
         startingPosition = new Position();
-        
     }
 
     public GameMap (Point point) {

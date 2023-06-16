@@ -7,6 +7,7 @@ import java.awt.Point;
 
 import com.levelup.forestsandmonsters.classes.Character;
 import com.levelup.forestsandmonsters.classes.DIRECTION;
+import com.levelup.forestsandmonsters.classes.GameMap;
 import com.levelup.forestsandmonsters.classes.TestablePosition;
 import com.levelup.forestsandmonsters.classes.Position;
  
@@ -49,14 +50,6 @@ public class CharacterTest {
         assertEquals(point, testCoordinates);
     }
 
-    // @Test
-    // public void testGetPosition2() {
-    //     Character character = new Character();
-    //     Position position = new Position();
-
-    //     assertEquals(character.getPosition(), position.getPosition());
-    // }
-
     @Test
     public void testCharacterMove() {
         Character testObj = new Character();
@@ -70,6 +63,16 @@ public class CharacterTest {
         assertNotNull(null, testPostion);
         assertEquals(5, testPostion.getPosition().x);
         assertEquals(4, testPostion.getPosition().y);
+    }
+
+    @Test
+    public void testEnterMap() {
+        Character testObj = new Character();
+        GameMap gameMap = new GameMap();
+        testObj.enterMap(gameMap);
+        Position currentPosition = testObj.getPosition();
+        assertEquals(5, currentPosition.getPosition().x);
+        assertEquals(5, currentPosition.getPosition().y);
     }
 
 }
